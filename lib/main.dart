@@ -1,5 +1,5 @@
 import 'dart:ffi';
-
+import 'speechScreen.dart';
 import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
 import 'package:avatar_glow/avatar_glow.dart';
@@ -22,50 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: speechScreen(),
-    );
-  }
-}
-
-class speechScreen extends StatefulWidget {
-  const speechScreen({Key? key}) : super(key: key);
-
-  @override
-  State<speechScreen> createState() => _speechScreenState();
-}
-
-class _speechScreenState extends State<speechScreen> {
-  stt.SpeechToText spobj = stt.SpeechToText();
-  bool isListening = false;
-  String text = "Lets get started press the button below";
-  double confidenceLevel = 0.9;
-  /* @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    spobj = stt.SpeechToText();
-  }*/
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-          title: Text(
-              'Confidence :${(confidenceLevel * 100.0).toStringAsFixed(1)}%'),
-          backgroundColor: Colors.green),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: AvatarGlow(
-        endRadius: 75.0,
-        glowColor: Theme.of(context).primaryColor,
-        animate: isListening,
-        duration: const Duration(milliseconds: 2000),
-        repeatPauseDuration: Duration(milliseconds: 100),
-        repeat: true,
-        child: FloatingActionButton(
-          onPressed: () {},
-          child: Icon(isListening ? Icons.mic : Icons.mic_none),
-        ),
-      ),
+      home: const speechScreen(),
     );
   }
 }
